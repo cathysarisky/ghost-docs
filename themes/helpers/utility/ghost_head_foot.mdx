@@ -19,8 +19,24 @@ These helpers output vital system information at the top and bottom of the docum
 * Scripts to enable the Ghost API
 * Anything added in the `Code Injection` section globally, or at a page-level
 
+#### Advanced settings for {{ghost_head}}
+`{{ghost_head}} takes an optional "exclude" parameter.  Valid values are a comma-separated list containing any of: 
+* "search" - removes the script that loads Ghost's built in search
+* "portal" - removes the portal script (effectively disabling membership and donations)
+* "announcement" - removes the announcement bar script
+* "metadata" - removes the meta description, favicon, canonical url, robots, referrer
+* "schema" - removes the LD+JSON schema
+* "card_assets" - removes loading of cards.min.css and cards.min.js, needed for all card assets
+* "comment_counts" - removes loading teh comment_counts script
+* "social_data" - removes og: and twitter: attributes
+* "cta_styles" - removes the styles needed for CTA and member signup
+
+⚠️Caution: excluding the default output of `{{ghost_head}}` can significantly impair the functioning and SEO of your site.  Use `excludes` only with care.⚠️
+
 ### ghost\_foot
 
 `{{ghost_foot}}` – belongs just before the `</body>` tag in `default.hbs`, outputs the following:
 
 * Anything added in the `Code Injection` section globally, or at a page-level
+
+
